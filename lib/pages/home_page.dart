@@ -42,8 +42,53 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: const MenuWidget(),
-      body: const Center(
-        child: Text('Hola Mundo'),
+      body: _crearListado(_userModel),
+    );
+  }
+
+  Widget _crearListado(user) {
+    if (user.length == 0) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    } else {
+      return ListView.builder(
+        itemCount: user.length,
+        itemBuilder: (context, i) => _crearItem(context, user[i]),
+      );
+    }
+  }
+
+  Widget _crearItem(BuildContext context, Usuario user) {
+    return Dismissible(
+      key: UniqueKey(),
+      background: Container(
+        color: Colors.blue,
+      ),
+      onDismissed: (direccion) {},
+      child: Card(
+        color: Colors.blueAccent[50],
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(user.avatar),
+                  ),
+                  title: Text('${user.firstName} ${user.lastName}'),
+                  subtitle: Text(
+                    user.email,
+                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                  ),
+                  tileColor: Colors.cyan,
+                  trailing: const Icon(
+                    Icons.favorite,
+                    size: 24.0,
+                    color: Colors.red,
+                  )),
+            ),
+          ],
+        ),
       ),
     );
   }
