@@ -21,8 +21,6 @@ class _HomePageState extends State<HomePage> {
 
   void _getData() async {
     _userModel = (await ApiServiceUser().getUsers())!;
-    print('HOME');
-    print(_userModel);
     Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
   }
 
