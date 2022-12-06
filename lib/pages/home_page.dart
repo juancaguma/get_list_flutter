@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               child: ListTile(
                   leading: CircleAvatar(
-                    backgroundImage: NetworkImage(user.avatar),
+                    backgroundImage: NetworkImage(user.profilePath),
                   ),
                   title: Text('${user.firstName} ${user.lastName}'),
                   subtitle: Text(

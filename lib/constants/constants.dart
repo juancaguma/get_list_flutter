@@ -1,4 +1,4 @@
 class ApiConstants {
-  static String baseUrl = 'https://reqres.in';
-  static String usersEndpoint = '/api/users?page=1';
+  static String baseUrl = 'http://172.16.214.130:5050';
+  static String usersEndpoint = '/api/getUsuarios';
 }
